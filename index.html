@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weeverze</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Weeverze LLC makes Fabyl and Eggthony: playful worlds you build with friends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column; a woven band of warp and weft threads under the wordmark, then two project cards side by side. */
+:root {
+  --linen: #f3f4f8;
+  --paper: #ffffff;
+  --ink: #1d1f3d;
+  --muted: #5b5e7c;
+  --warp: #2f3488;
+  --weft: #e0a43a;
+  --line: #dcdeea;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --linen: #12132a; --paper: #1b1d3a; --ink: #eceefa; --muted: #a6a9c8;
+    --warp: #8f95ff; --weft: #f0b85a; --line: #2c2f55; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --linen: #12132a; --paper: #1b1d3a; --ink: #eceefa; --muted: #a6a9c8;
+  --warp: #8f95ff; --weft: #f0b85a; --line: #2c2f55; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-block: clamp(2.5rem, 7vw, 5rem) 2.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.25rem);
+}
+header { display: grid; gap: 1rem; }
+.mark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  margin: 0;
+}
+.mark span { color: var(--warp); }
+.weave {
+  height: 18px;
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(90deg, var(--warp) 0 9px, transparent 9px 18px),
+    repeating-linear-gradient(0deg, var(--weft) 0 9px, var(--linen) 9px 18px);
+  background-blend-mode: normal;
+  -webkit-mask: linear-gradient(90deg, #000 70%, transparent);
+  mask: linear-gradient(90deg, #000 70%, transparent);
+  max-width: 100%;
+}
+.lede {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+  line-height: 1.25;
+  max-width: 30ch;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede-sub { margin: 0; color: var(--muted); max-width: 58ch; }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 1.25rem;
+}
+.card {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.6rem;
+  padding: 1.6rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--warp); }
+.card:focus-visible { outline: 3px solid var(--weft); outline-offset: 3px; }
+.kind {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.card h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.card p { margin: 0; color: var(--muted); }
+.go {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: var(--warp);
+}
+.go::after { content: " \2192"; }
+.extra { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.extra a { color: var(--warp); }
+footer {
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+footer a { color: inherit; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1 class="mark">weeverze<span>.</span></h1>
+    <div class="weave" aria-hidden="true"></div>
+  </header>
+
+  <section style="display:grid;gap:0.75rem">
+    <p class="lede">Small, playful worlds you build with the people you like.</p>
+    <p class="lede-sub">Weeverze LLC is the studio behind Fabyl and Eggthony.</p>
+  </section>
+
+  <section class="projects" aria-label="Projects">
+    <a class="card" href="https://fabyl.ai">
+      <span class="kind">Storytelling app · iPhone</span>
+      <h2>Fabyl</h2>
+      <p>Start a story with one line. Fabyl turns it into an illustrated card, and your friends decide where it goes next.</p>
+      <span class="go">fabyl.ai</span>
+    </a>
+    <a class="card" href="https://eggthony.com">
+      <span class="kind">Game · Mac and browser</span>
+      <h2>Eggthony</h2>
+      <p>A 3D world to explore, plus the original 2D Lightning Egg you can play right in your browser.</p>
+      <span class="go">eggthony.com</span>
+    </a>
+  </section>
+
+  <p class="extra">Fabyl is on the <a href="https://apps.apple.com/app/fabyl/id6480235121">App Store</a>.</p>
+
+  <footer>
+    <span>&copy; 2026 Weeverze LLC</span>
+    <span>Contact: <a href="mailto:anthony@fabyl.ai">anthony@fabyl.ai</a></span>
+  </footer>
+</main>
+</body>
+</html>
