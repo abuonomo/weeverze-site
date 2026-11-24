@@ -90,9 +90,10 @@ header { display: grid; gap: 1rem; }
 .card {
   min-width: 0;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr auto;
   gap: 0.6rem;
   padding: 1.6rem;
+  overflow: hidden;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -102,6 +103,24 @@ header { display: grid; gap: 1rem; }
 }
 .card:hover { transform: translateY(-3px); border-color: var(--warp); }
 .card:focus-visible { outline: 3px solid var(--weft); outline-offset: 3px; }
+.media {
+  margin: -1.6rem -1.6rem 0.6rem;
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.media.fabyl { background: #efe7da; }
+.media.fabyl img { object-fit: contain; }
+.media.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); }
+.shot { position: relative; min-width: 0; overflow: hidden; background: #0b0d22; }
+.shot.three img { object-position: 46% 50%; }
+.tag {
+  position: absolute; left: 0.6rem; bottom: 0.6rem;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem; border-radius: 999px;
+  background: rgba(16, 18, 40, 0.78); color: #fff;
+}
 .kind {
   font-size: 0.75rem;
   font-weight: 600;
@@ -154,12 +173,17 @@ footer a { color: inherit; }
 
   <section class="projects" aria-label="Projects">
     <a class="card" href="https://fabyl.ai">
+      <div class="media fabyl"><img src="images/fabyl-card.jpg" width="400" height="488" alt="A Fabyl story card: a boy skipping stones on a pond while a striped creature splashes its tail"></div>
       <span class="kind">Storytelling app · iPhone</span>
       <h2>Fabyl</h2>
       <p>Start a story with one line. Fabyl turns it into an illustrated card, and your friends decide where it goes next.</p>
       <span class="go">fabyl.ai</span>
     </a>
     <a class="card" href="https://eggthony.com">
+      <div class="media duo">
+        <div class="shot"><img src="images/eggthony-2d.jpg" width="400" height="485" alt="Eggthony: Lightning Egg, the 2D browser game's start screen"><span class="tag">2D</span></div>
+        <div class="shot three"><img src="images/eggthony-3d.jpg" width="1160" height="615" alt="Eggthony 3D: the egg crossing a wooden bridge into a colorful village"><span class="tag">3D</span></div>
+      </div>
       <span class="kind">Game · Mac and browser</span>
       <h2>Eggthony</h2>
       <p>A 3D world to explore, plus the original 2D Lightning Egg you can play right in your browser.</p>
